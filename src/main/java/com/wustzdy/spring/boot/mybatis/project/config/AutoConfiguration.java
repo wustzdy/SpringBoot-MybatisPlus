@@ -16,7 +16,8 @@ public class AutoConfiguration {
     @Autowired
     private IamLiquibaseDataSourceProperties liquibaseDataSourceProperties;
 
-    private DataSource liquibaseDataSource(){
+    @Bean
+    public DataSource liquibaseDataSource(){
         HikariConfig config = new HikariConfig();
         config.setDriverClassName(liquibaseDataSourceProperties.getDriver());
         config.setJdbcUrl(liquibaseDataSourceProperties.getUrl());
