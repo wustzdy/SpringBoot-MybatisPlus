@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 
@@ -17,8 +16,7 @@ public class AutoConfiguration {
     @Autowired
     private IamLiquibaseDataSourceProperties liquibaseDataSourceProperties;
 
-    @Bean
-    public DataSource liquibaseDataSource(){
+    private DataSource liquibaseDataSource() {
         HikariConfig config = new HikariConfig();
         config.setDriverClassName(liquibaseDataSourceProperties.getDriver());
         config.setJdbcUrl(liquibaseDataSourceProperties.getUrl());
