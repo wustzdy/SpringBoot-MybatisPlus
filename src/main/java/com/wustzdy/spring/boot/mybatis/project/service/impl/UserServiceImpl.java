@@ -25,4 +25,12 @@ public class UserServiceImpl implements UserService {
         BeanUtils.copyProperties(userEntity, user1);
         return user1;
     }
+
+    @Override
+    public User getUser(String userName) {
+        UserEntity userEntity = userMapper.selectByName(userName);
+        User user = new User();
+        BeanUtils.copyProperties(userEntity, user);
+        return user;
+    }
 }

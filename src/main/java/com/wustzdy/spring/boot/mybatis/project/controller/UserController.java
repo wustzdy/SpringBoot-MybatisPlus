@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 
 @RestController
 @RequestMapping("zdy/user")
@@ -25,5 +25,10 @@ public class UserController {
     @RequestMapping(value = "/createUser", method = RequestMethod.POST)
     public User createUser(@RequestBody User user) {
         return userService.addUser(user);
+    }
+
+    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
+    public User getUsers(@RequestParam String userName) {
+        return userService.getUser(userName);
     }
 }
