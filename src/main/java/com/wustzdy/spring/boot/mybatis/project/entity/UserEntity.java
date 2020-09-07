@@ -1,6 +1,8 @@
 package com.wustzdy.spring.boot.mybatis.project.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,10 +12,10 @@ import lombok.NoArgsConstructor;
 @TableName(UserEntity.TABLE_NAME)
 public class UserEntity {
     public static final String TABLE_NAME = "zdy_user";
-    @TableField
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-    @TableField
+    @TableField(value = "user_name")
     private String userName;
-    @TableField
+    @TableField(value = "pass_word")
     private String passWord;
 }
