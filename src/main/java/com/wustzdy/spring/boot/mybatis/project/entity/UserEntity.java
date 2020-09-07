@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class UserEntity {
     public static final String TABLE_NAME = "zdy_user";
     @TableField
-    private Long id;
+    private Integer id;
     @TableField
     private String userName;
     @TableField

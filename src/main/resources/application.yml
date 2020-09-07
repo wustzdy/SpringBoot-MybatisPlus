@@ -11,7 +11,7 @@ mysql:
   iam:
     liquibaseDataSource:
       driver: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/zdy_db3?createDatabaseIfNotExist=true
+      url: jdbc:mysql://localhost:3306/Wustzdy?createDatabaseIfNotExist=true
       username: root
       password: 123456
       maxPoolSize: 2
