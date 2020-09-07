@@ -1,19 +1,25 @@
 spring:
   datasource:
-    dynamic:
-      datasource:
-        iam:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://localhost:3306/zdyMyTest
+          url: jdbc:mysql://127.0.0.1:3306/business_operation_guidance
           username: root
-          password: zdy110629
+          password: 123456
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+    enabled: false
 mysql:
   iam:
     liquibaseDataSource:
       driver: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/zdyMyTest?createDatabaseIfNotExist=true
+      url: jdbc:mysql://localhost:3306/zdy_db3?createDatabaseIfNotExist=true
       username: root
-      password: zdy110629
+      password: 123456
       maxPoolSize: 2
       connectionTimeOut: 10000
       maxLifeTime: 600000
+
+
+server:
+  port: 8089
+
+
