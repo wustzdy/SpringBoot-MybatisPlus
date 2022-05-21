@@ -8,6 +8,7 @@ import com.wustzdy.spring.boot.mybatis.project.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,9 @@ public class OrderServiceImpl implements OrderService {
     private OrderMapper orderMapper;
     @Autowired
     private AccountService accountService;
+    //从上下文中获取bean 事务生效
+    @Autowired
+    private ApplicationContext applicationContext;
 
     @Override
     @Transactional
@@ -31,7 +35,13 @@ public class OrderServiceImpl implements OrderService {
         orderEntity.setName(order.getName());
         orderMapper.insert(orderEntity);
 
-        accountService.deduction(order.getUserId(), order.getMoney());
+        accountDeduction(order.getUserId(), order.getMoney());
 
+    }
+
+    @Transactional
+    public void accountDeduction(Integer userId,
+                                 Integer money) throws Exception {
+        accountService.deduction(userId, money);
     }
 }
