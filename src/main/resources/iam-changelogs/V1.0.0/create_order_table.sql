@@ -1,7 +1,7 @@
 --liquibase formatted sql
 
 --changeset zhudayang:20200905-01
-CREATE TABLE `order` (
+CREATE TABLE `zdy_order` (
     `id` int (11) NOT NULL AUTO_INCREMENT,
     `name` varchar(64) NOT NULL COMMENT '产品名称',
     `user_id` int (11) NOT NULL COMMENT '用户id',

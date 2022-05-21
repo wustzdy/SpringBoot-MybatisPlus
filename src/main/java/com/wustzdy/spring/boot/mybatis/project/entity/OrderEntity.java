@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @TableName(OrderEntity.TABLE_NAME)
 public class OrderEntity {
-    public static final String TABLE_NAME = "order";
+    public static final String TABLE_NAME = "zdy_order";
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
     @TableField(value = "name")

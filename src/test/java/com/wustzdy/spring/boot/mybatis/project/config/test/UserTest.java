@@ -1,6 +1,8 @@
 package com.wustzdy.spring.boot.mybatis.project.config.test;
 
+import com.wustzdy.spring.boot.mybatis.project.model.Order;
 import com.wustzdy.spring.boot.mybatis.project.model.User;
+import com.wustzdy.spring.boot.mybatis.project.service.OrderService;
 import com.wustzdy.spring.boot.mybatis.project.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,14 +14,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class UserTest {
     @Autowired
-    private UserService userService;
+    private OrderService orderService;
 
     @Test
-    public void test() {
-        User user = new User();
-        user.setUserName("zhangdan");
-        user.setId(10);
-        user.setPassWord("222");
-        userService.addUser(user);
+    public void test() throws Exception {
+        Order order = new Order();
+        order.setMoney(20);
+        order.setName("dianchi");
+        order.setUserId(1);
+        orderService.addOrder(order);
     }
 }
