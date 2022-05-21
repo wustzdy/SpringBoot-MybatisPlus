@@ -4,18 +4,21 @@ import com.wustzdy.spring.boot.mybatis.project.entity.UserEntity;
 import com.wustzdy.spring.boot.mybatis.project.mapper.UserMapper;
 import com.wustzdy.spring.boot.mybatis.project.model.User;
 import com.wustzdy.spring.boot.mybatis.project.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
 @Component
+@Slf4j
 public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
 
     @Override
     public User addUser(User user) {
+        log.info("--addUser-user:{}", user.toString());
         UserEntity userEntity = new UserEntity();
         BeanUtils.copyProperties(user, userEntity);
         if (userMapper.insert(userEntity) != 1) {
