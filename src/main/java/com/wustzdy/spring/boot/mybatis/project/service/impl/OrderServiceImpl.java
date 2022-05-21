@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.beans.Transient;
 
@@ -21,7 +22,7 @@ public class OrderServiceImpl implements OrderService {
     private AccountService accountService;
 
     @Override
-    @Transient
+    @Transactional
     public void addOrder(Order order) throws Exception {
         log.info("--addUser-user:{}", order.toString());
         OrderEntity orderEntity = new OrderEntity();

@@ -6,6 +6,7 @@ import com.wustzdy.spring.boot.mybatis.project.model.Account;
 import com.wustzdy.spring.boot.mybatis.project.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -13,6 +14,7 @@ public class AccountServiceImpl implements AccountService {
     private AccountMapper mapper;
 
     @Override
+    @Transactional
     public void deduction(Integer userId, Integer money) throws Exception {
         AccountEntity accountEntity = mapper.selectById(userId);
         if (accountEntity != null && money < accountEntity.getMoney()) {
