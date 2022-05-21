@@ -21,7 +21,7 @@ public class AccountServiceImpl implements AccountService {
             accountEntity.setMoney(accountEntity.getMoney() - money);
             mapper.updateById(accountEntity);
         } else {
-            throw new Exception("money 不够，无法购买");
+            throw new RuntimeException("money 不够，无法购买");
         }
     }
 }
